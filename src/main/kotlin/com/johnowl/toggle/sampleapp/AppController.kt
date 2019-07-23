@@ -1,6 +1,7 @@
 package com.johnowl.toggle.sampleapp
 
 import com.johnowl.toggle.client.FeatureToggleClient
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -11,6 +12,7 @@ class AppController {
 
     private val featureToggleClient: FeatureToggleClient
 
+    @Autowired
     constructor(featureToggleClient: FeatureToggleClient) {
         this.featureToggleClient = featureToggleClient
     }
