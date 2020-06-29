@@ -8,14 +8,9 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/app")
-class AppController {
-
-    private val featureToggleClient: FeatureToggleClient
-
-    @Autowired
-    constructor(featureToggleClient: FeatureToggleClient) {
-        this.featureToggleClient = featureToggleClient
-    }
+class AppController(
+        private val featureToggleClient: FeatureToggleClient
+) {
 
     @PostMapping("/login")
     fun login(@RequestBody user: LoginRequest): ResponseEntity<String> {
